@@ -4,7 +4,8 @@ A simple Spring Boot webapp using:
 * Github OAuth
 
 ### Lab07a Javadoc
-[https://ucsb-cs56-f19.github.io/lab07-sophiegroenwold/](https://ucsb-cs56-f19.github.io/lab07-sophiegroenwold/)
+[View the Javadoc](https://ucsb-cs56-f19.github.io/lab07-sophiegroenwold/) <br>
+[View the Heroku app](https://cs56-f19-lab07-sophiegroenwold.herokuapp.com/)
 
 
 # Running on Localhost.
