@@ -24,6 +24,12 @@ public class WebController {
         return "index";
     }
 
+    @GetMapping("/earthquakes/search")
+    public String getEarthquakesSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+            EqSearch eqSearch) {
+        return "earthquakes/search";
+    }
+
     @GetMapping("/login")
     public String getLoginPage(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
 
@@ -36,6 +42,14 @@ public class WebController {
 
         model.addAttribute("urls", urls);
         return "login";
+    }
+
+    @GetMapping("/earthquakes/results")
+    public String getEarthquakesResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+            EqSearch eqSearch) {
+        model.addAttribute("eqSearch", eqSearch);
+        // TODO: Actually do the search here and add results to the model
+        return "earthquakes/results";
     }
 
     @GetMapping("/page1")
