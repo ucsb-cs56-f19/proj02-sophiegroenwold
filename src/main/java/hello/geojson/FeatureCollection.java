@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class FeatureCollection {
   public String type;
+  public Metadata metadata;
 
   private static Logger logger = LoggerFactory.getLogger(FeatureCollection.class);
 
