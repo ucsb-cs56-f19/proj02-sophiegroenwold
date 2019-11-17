@@ -47,9 +47,11 @@ public class WebController {
     @GetMapping("/earthquakes/results")
     public String getEarthquakesResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             EqSearch eqSearch) {
-        model.addAttribute("eqSearch", eqSearch);
-        // TODO: Actually do the search here and add results to the model
-        return "earthquakes/results";
+	EarthquakeQueryService e = new EarthquakeQueryService();	
+	model.addAttribute("eqSearch", eqSearch);
+        String json = e.getJSON(eqSearch.getDistance(), eqSearch.getMinmag());
+        model.addAttribute("json", json);
+	return "earthquakes/results";
     }
 
     @GetMapping("/page1")
