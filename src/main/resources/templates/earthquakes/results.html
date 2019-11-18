@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"> 
   <head>
-    <title>Earthquake Search Results</title>
+    <title>Earthquake Search</title>
     <div th:replace="bootstrap/bootstrap_head.html"></div>
   </head>
   <body>
@@ -10,16 +10,6 @@
 
       <h1>Earthquake Search Results</h1>
 
-      <table>
-        <tr>
-            <th>Distance (km)</th>
-            <td th:text="${eqSearch.distance}"></td>
-        </tr>
-        <tr>
-            <th>Minimum Magnitude</th>
-            <td th:text="${eqSearch.minmag}"></td>
-        </tr>
-      </table>
 
       <h2>JSON Results</h2>
 
@@ -57,7 +47,7 @@
             </thead>
             <tbody>
                 <tr th:each="f: ${featureCollection.features}"> 
-                    <td><a th:href="${f.properties.url}" th:text="${f.id}"></a></td>
+		    <td><a th:href="${featureCollection.metadata.url}" th:text="${f.id}"></a></td>
 		    <td th:text="${f.properties.place}"></td>
                     <td th:text="${f.properties.mag}"></td>
                 </tr>
