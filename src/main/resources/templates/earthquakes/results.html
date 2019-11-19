@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"> 
   <head>
-    <title>Earthquake Search Results</title>
+    <title>Earthquake Search</title>
     <div th:replace="bootstrap/bootstrap_head.html"></div>
   </head>
   <body>
@@ -10,20 +10,44 @@
 
       <h1>Earthquake Search Results</h1>
 
-      <table>
-        <tr>
-            <th>Distance (km)</th>
-            <td th:text="${eqSearch.distance}"></td>
-        </tr>
-        <tr>
-            <th>Minimum Magnitude</th>
-            <td th:text="${eqSearch.minmag}"></td>
-        </tr>
-      </table>
+	<h2> Results</h2>
 
-      <h2>JSON Results</h2>
+	<table class = "table">
+            <thead>
+                <tr>
+		    <th>Title</th>
+                    <th>Count</th>
+		    <th>Distance (km)</th>
+		    <th>Minimum Magnitue</th>
+		</tr>
+            </thead>
+            <tbody>
+                <tr>
+		    <td th:text="${featureCollection.metadata.title}"></td>
+                    <td th:text="${featureCollection.metadata.count}"></td>
+                    <td th:text="${eqSearch.distance}"></td>
+                    <td th:text="${eqSearch.minmag}"></td>
+		</tr>
+            </tbody>
+        </table>
 
-        <pre th:text="${json}">This is placeholder</pre>
+      <h3>Earthquakes</h3>
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>place</th>
+                    <th>mag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="f: ${featureCollection.features}"> 
+		    <td><a th:href="${featureCollection.metadata.url}" th:text="${f.id}"></a></td>
+		    <td th:text="${f.properties.place}"></td>
+                    <td th:text="${f.properties.mag}"></td>
+                </tr>
+            </tbody>
+        </table>
 
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
