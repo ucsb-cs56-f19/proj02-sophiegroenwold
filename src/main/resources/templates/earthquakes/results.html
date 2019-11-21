@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 <tr>
-		    <td th:text="${featureCollection.metadata.title}"></td>
+		    <td><a th:href="${featureCollection.metadata.url}" th:text="${featureCollection.metadata.title)"></a></td>
                     <td th:text="${featureCollection.metadata.count}"></td>
                     <td th:text="${eqSearch.distance}"></td>
                     <td th:text="${eqSearch.minmag}"></td>
