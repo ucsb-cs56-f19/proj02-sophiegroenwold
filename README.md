@@ -5,7 +5,8 @@ A simple Spring Boot webapp using:
 
 ### Lab07a Javadoc
 [View the Javadoc](https://ucsb-cs56-f19.github.io/lab07-sophiegroenwold/) <br>
-[View the Heroku app](https://cs56-f19-lab07-sophiegroenwold.herokuapp.com/)
+[View the Heroku app](https://cs56-f19-lab07-sophiegroenwold.herokuapp.com/) <br>
+[View the Travis CI](https://travis-ci.org/ucsb-cs56-f19/lab07-sophiegroenwold)
 
 
 # Running on Localhost.
