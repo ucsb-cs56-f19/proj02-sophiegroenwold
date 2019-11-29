@@ -1,7 +1,7 @@
 package hello.controllers;
 
 import hello.services.EarthquakeQueryService;
-import hello.EqSearch;
+import hello.services.EqSearch;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
