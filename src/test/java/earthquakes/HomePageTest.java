@@ -87,7 +87,7 @@ public class HomePageTest {
     }
 
     @Test
-    public void getHomePage_hasCorrectLink2() throws Exception {
+    public void getHomePage_hasCorrectLink3() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
                 .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[4]/a").exists())
