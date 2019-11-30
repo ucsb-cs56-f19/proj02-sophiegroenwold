@@ -33,15 +33,13 @@ public class LocationsController {
 
     @GetMapping("/locations/results")
     public String getLocationsResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
-            LocSearch locSearch) {
-	LocationQueryService e = new LocationQueryService();	
-        model.addAttribute("locSearch", locSearch);
-        String json = e.getJSON(locSearch.getLocation());
-        model.addAttribute("json", json);
-
-        List<Place> place = Place.listFromJson(json);
-        model.addAttribute("place", place);
-
-	return "locations/results";
+          LocSearch locSearch) {
+          LocationQueryService e = new LocationQueryService();
+          model.addAttribute("locSearch", locSearch);
+          String json = e.getJSON(locSearch.getLocation());
+          model.addAttribute("json", json);
+          List<Place> place = Place.listFromJson(json);
+          model.addAttribute("place", place);
+          return "locations/results";
     }
 }
