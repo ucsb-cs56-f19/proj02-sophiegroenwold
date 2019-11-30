@@ -1,6 +1,6 @@
 package earthquakes.controllers;
 
-import earthquakes.services.EarthquakeQueryService;
+import earthquakes.services.LocationQueryService;
 import earthquakes.searches.LocSearch;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +32,12 @@ public class LocationsController {
     @GetMapping("/locations/results")
     public String getLocationsResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
-	// EarthquakeQueryService e = new EarthquakeQueryService();	
-	// model.addAttribute("eqSearch", eqSearch);
-        // String json = e.getJSON(eqSearch.getDistance(), eqSearch.getMinmag());
-        // model.addAttribute("json", json);
-	// FeatureCollection featureCollection = FeatureCollection.fromJSON(json);
-        // model.addAttribute("featureCollection",featureCollection);
+	LocationQueryService e = new LocationQueryService();	
+        model.addAttribute("locSearch", locSearch);
+        String json = e.getJSON(locSearch.getLocation());
+        model.addAttribute("json", json);
+	FeatureCollection featureCollection = FeatureCollection.fromJSON(json);
+        model.addAttribute("featureCollection",featureCollection);
 	return "locations/results";
     }
 }

@@ -22,7 +22,28 @@
 		            <td th:text = "${locSearch.location}"></td>
 		        </tr>
             </tbody>
-    </table>
+  </table>
+
+  <h2>Location Search Results</h2>
+
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Place Id</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Display Name</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="f: ${featureCollection.features}"> 
+		              <td><a th:href="${f.properties.url}" th:text="${f.id}"></a></td>
+		              <td th:text="${f.properties.place}"></td>
+                  <td th:text="${f.properties.mag}"></td>
+                </tr>
+            </tbody>
+        </table>
 
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
