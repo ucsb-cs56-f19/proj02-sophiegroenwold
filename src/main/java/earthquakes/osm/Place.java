@@ -27,7 +27,7 @@ public class Place {
      * @see <a href=
      *      "https://tools.ietf.org/html/rfc7946">https://tools.ietf.org/html/rfc7946</a>
      */
-    public static List<Place> listFromJson(String json){
+    public static List<Place> listFromJSON(String json){
         try {
 	    	ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -40,6 +40,5 @@ public class Place {
             	logger.error("Exception:" + e);
             	return null;
         }       
-    }
     }
 }
