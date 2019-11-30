@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
+
 public class LocationQueryService {
 
     private Logger logger = LoggerFactory.getLogger(LocationQueryService.class);
