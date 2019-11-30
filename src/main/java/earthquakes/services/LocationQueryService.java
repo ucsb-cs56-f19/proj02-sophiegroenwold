@@ -30,6 +30,7 @@ public class LocationQueryService {
 
         String url = "https://nominatim.openstreetmap.org/search/"+location+"?format=json";
 
+        logger.info("url=" + url);
         String retVal="";
         try {   
             ResponseEntity<String> re = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);

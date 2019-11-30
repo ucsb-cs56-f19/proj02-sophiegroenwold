@@ -36,9 +36,8 @@ public class LocationsController {
         model.addAttribute("locSearch", locSearch);
         String json = e.getJSON(locSearch.getLocation());
         model.addAttribute("json", json);
-
-	// FeatureCollection featureCollection = FeatureCollection.fromJSON(json);
-        // model.addAttribute("featureCollection",featureCollection);
+	FeatureCollection featureCollection = FeatureCollection.fromJSON(json);
+        model.addAttribute("featureCollection",featureCollection);
 	return "locations/results";
     }
 }
