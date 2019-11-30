@@ -1,7 +1,7 @@
 
 [View the Javadoc](https://ucsb-cs56-f19.github.io/proj02-sophiegroenwold/) <br>
 [View the Heroku app](https://cs56-f19-proj02-sophiegroenwol.herokuapp.com/) <br>
-_*the body of the link is literally cs56-f19-proj01-sophiegroenwol without 'd' because I reached the max character length for a heroku app name!_<br>
+_*the body of the link is literally cs56-f19-proj02-sophiegroenwol without 'd' because I reached the max character length for a heroku app name!_<br>
 [View the Travis CI](https://travis-ci.org/ucsb-cs56-f19/proj02-sophiegroenwold)
 
 ---
