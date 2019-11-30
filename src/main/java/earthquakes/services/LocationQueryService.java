@@ -20,10 +20,27 @@ public class LocationQueryService {
     private Logger logger = LoggerFactory.getLogger(LocationQueryService.class);
 
     public String getJSON(String location) {
-    	String fakeJson = "{ \"key\": \"value\" }";
-        String json = fakeJson;
-        logger.info("json=" + json);
-        return json;
+    	RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<>("body", headers);
+
+        String url = "https://nominatim.openstreetmap.org/search/"+location+"?format=json";
+
+        String retVal="";
+        try {   
+            ResponseEntity<String> re = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+             MediaType contentType = re.getHeaders().getContentType();
+            HttpStatus statusCode = re.getStatusCode();
+            retVal = re.getBody();
+        } catch (HttpClientErrorException e) {
+            retVal = "{\"error\": \"401: Unauthorized\"}";
+        }
+        logger.info("from LocationQueryService.getJSON: " + retVal);
+        return retVal;
     }
 
 }

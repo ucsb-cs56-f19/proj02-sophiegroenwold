@@ -33,8 +33,7 @@ public class LocationsController {
     public String getLocationsResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
 	LocationQueryService e = new LocationQueryService();	
-        // model.addAttribute("locSearch", locSearch);
-        
+        model.addAttribute("locSearch", locSearch);
         String json = e.getJSON(locSearch.getLocation());
         model.addAttribute("json", json);
 
