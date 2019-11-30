@@ -19,7 +19,7 @@ public class EarthquakeQueryService {
 
     private Logger logger = LoggerFactory.getLogger(EarthquakeQueryService.class);
 
-    public String getJSON(int distance, int minmag) {
+    public String getJSON(int distance, int minmag, double lat, double lon) {
     	RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
@@ -32,7 +32,7 @@ public class EarthquakeQueryService {
         double ucsbLat = 34.4140;
         double ucsbLong = -119.8489;
         String params = String.format("?format=geojson&minmagnitude=%d&maxradiuskm=%d&latitude=%f&longitude=%f",
-           minmag,distance,ucsbLat,ucsbLong);
+           minmag,distance,lat,lon);
 
         String url = uri + params;
         logger.info("url=" + url);
