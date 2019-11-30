@@ -1,52 +1,65 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="en"> 
-  <head>
-    <title>Location Search</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>Earthquake Search</title>
     <div th:replace="bootstrap/bootstrap_head.html"></div>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
+        <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
 
-      <h1>Location Search Results</h1>
+        <h1>Location Search Results</h1>
 
-
-	<table class = "table">
+        <table class="table">
             <thead>
                 <tr>
-		            <th>Location</th>
-		        </tr>
+
+                    <th>Location</th>
+      
+                </tr>
             </thead>
             <tbody>
                 <tr>
-		            <td th:text = "${locSearch.location}"></td>
-		        </tr>
+
+                	<td th:text="${locSearch.location}"></td>
+
+                </tr>
             </tbody>
-  </table>
+        </table>
+        
 
-  <h2>Location Search Results</h2>
+        <h3>Location Search Results</h3>
 
-        <table class = "table">
+        <table class="table">
             <thead>
                 <tr>
+
                     <th>Place Id</th>
                     <th>Latitude</th>
                     <th>Longitude</th>
                     <th>Display Name</th>
                     <th>Type</th>
+
                 </tr>
             </thead>
+
             <tbody>
-                <tr th:each="f: ${featureCollection.features}"> 
-		              <td><a th:href="${f.properties.url}" th:text="${f.id}"></a></td>
-		              <td th:text="${f.properties.place}"></td>
-                  <td th:text="${f.properties.mag}"></td>
+            	<tr th:each="p: ${place}">
+                    <td th:text="${p.place_id}"></td>
+   		 			        <td th:text="${p.lat}"></td>
+					          <td th:text="${p.lon}"></td>  
+					          <td th:text="${p.display_name}"></td>
+					          <td th:text="${p.type}"></td>        
                 </tr>
             </tbody>
+
         </table>
 
-      <div th:replace="bootstrap/bootstrap_footer.html"></div>
+        <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
-  </body>
+</body>
+
 </html>

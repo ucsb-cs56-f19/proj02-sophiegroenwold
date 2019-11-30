@@ -15,12 +15,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
+
 public class LocationQueryService {
 
     private Logger logger = LoggerFactory.getLogger(LocationQueryService.class);
 
     public String getJSON(String location) {
-    	RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -29,10 +30,10 @@ public class LocationQueryService {
         HttpEntity<String> entity = new HttpEntity<>("body", headers);
 
         String url = "https://nominatim.openstreetmap.org/search/"+location+"?format=json";
-
         logger.info("url=" + url);
+
         String retVal="";
-        try {   
+        try {
             ResponseEntity<String> re = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
              MediaType contentType = re.getHeaders().getContentType();
             HttpStatus statusCode = re.getStatusCode();
