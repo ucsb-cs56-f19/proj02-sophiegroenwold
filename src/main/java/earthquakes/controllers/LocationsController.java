@@ -3,6 +3,8 @@ package earthquakes.controllers;
 import earthquakes.osm.Place;
 import earthquakes.services.LocationQueryService;
 import earthquakes.searches.LocSearch;
+import earthquakes.entities.Location;
+import earthquakes.repositories.LocationRepository;
 
 import java.util.List;
 
@@ -42,5 +44,12 @@ public class LocationsController {
           List<Place> place = Place.listFromJSON(json);
           model.addAttribute("place", place);
           return "locations/results";
+    }
+
+    @GetMapping("/locations")
+    public String index(Model model) {
+        Iterable<Location> location= locationRepository.findAll();
+        model.addAttribute("locations", locations);
+        return "locations/index";
     }
 }
