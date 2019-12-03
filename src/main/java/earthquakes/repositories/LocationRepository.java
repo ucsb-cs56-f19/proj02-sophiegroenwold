@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import earthquakes.entities.Location;
 
 @Repository
-public interface UserRepository extends CrudRepository<Location, Long> {
+public interface LocationRepository extends CrudRepository<Location, Long> {
    List<Location> findByPlaceId(String placeId);
 }
