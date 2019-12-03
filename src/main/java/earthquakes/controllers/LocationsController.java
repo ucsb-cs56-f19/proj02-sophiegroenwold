@@ -27,6 +27,12 @@ public class LocationsController {
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
+    private LocationRepository locationRepository;
+
+    @Autowired
+    public LocationsController(LocationRepository locationRepository) {
+        this.locationRepository = locationRepository;   
+    }
 
     @GetMapping("/locations/search")
     public String getLocationsSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
@@ -48,7 +54,7 @@ public class LocationsController {
 
     @GetMapping("/locations")
     public String index(Model model) {
-        Iterable<Location> location= locationRepository.findAll();
+        Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("locations", locations);
         return "locations/index";
     }
