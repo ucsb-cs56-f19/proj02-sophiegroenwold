@@ -59,9 +59,9 @@ public class LocationsController {
 
     @GetMapping("/locations")
     public String index(Model model, OAuth2AuthenticationToken token) {
-        if (token == null) return false;
+        if (token == null) return "";
         OAuth2User oAuth2User = token.getPrincipal();
-        String uid = (String) oAuth2User.getAttributes().get("uid");
+        String uid = (String) oAuth2User.getAttributes().get("id");
         Iterable<Location> locations= locationRepository.findByUid(uid);
         model.addAttribute("locations", locations);
         return "locations/index";
@@ -69,9 +69,9 @@ public class LocationsController {
 
     @GetMapping("/locations/admin")
     public String admin(Model model, OAuth2AuthenticationToken token) {
-        if (token == null) return false;
+        if (token == null) return "";
         OAuth2User oAuth2User = token.getPrincipal();
-        String uid = (String) oAuth2User.getAttributes().get("uid");
+        String uid = (String) oAuth2User.getAttributes().get("id");
         Iterable<Location> locations= locationRepository.findByUid(uid);
         model.addAttribute("locations", locations);
         return "locations/admin";
@@ -79,12 +79,12 @@ public class LocationsController {
 
     @PostMapping("/locations/add")
     public String add(Location location, Model model, OAuth2AuthenticationToken token) {
-      if (token == null) return false;
+      if (token == null) return "";
       OAuth2User oAuth2User = token.getPrincipal();
-      String uid = (String) oAuth2User.getAttributes().get("uid");
-      location.set(uid);
+      String uid = (String) oAuth2User.getAttributes().get("id");
+      location.setUid(uid);
       locationRepository.save(location);
-      model.addAttribute("locations", locationRepository.findByUid());
+      model.addAttribute("locations", locationRepository.findByUid(uid));
       return "locations/index";
     }
 
