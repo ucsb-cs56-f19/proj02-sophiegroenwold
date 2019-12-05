@@ -61,18 +61,22 @@ public class LocationsController {
     public String index(Model model, OAuth2AuthenticationToken token) {
         if (token == null) return "";
         OAuth2User oAuth2User = token.getPrincipal();
-        String uid = (String) oAuth2User.getAttributes().get("id");
+        String uid = oAuth2User.getAttributes().get("id").toString();
         Iterable<Location> locations= locationRepository.findByUid(uid);
         model.addAttribute("locations", locations);
         return "locations/index";
     }
 
     @GetMapping("/locations/admin")
-    public String admin(Model model, OAuth2AuthenticationToken token) {
-        if (token == null) return "";
-        OAuth2User oAuth2User = token.getPrincipal();
-        String uid = (String) oAuth2User.getAttributes().get("id");
-        Iterable<Location> locations= locationRepository.findByUid(uid);
+    public String admin(Model model) {
+        Iterable<Location> locations= locationRepository.findAll();
+        model.addAttribute("locations", locations);
+        return "locations/admin";
+    }
+
+    @GetMapping("/locations/admin")
+    public String admin(Model model) {
+        Iterable<Location> locations= locationRepository.findAll();
         model.addAttribute("locations", locations);
         return "locations/admin";
     }
@@ -81,10 +85,10 @@ public class LocationsController {
     public String add(Location location, Model model, OAuth2AuthenticationToken token) {
       if (token == null) return "";
       OAuth2User oAuth2User = token.getPrincipal();
-      String uid = (String) oAuth2User.getAttributes().get("id");
+      String uid = oAuth2User.getAttributes().get("id").toString();
       location.setUid(uid);
       locationRepository.save(location);
-      model.addAttribute("locations", locationRepository.findByUid(uid));
+      model.addAttribute("locations", locationRepository.findAll());
       return "locations/index";
     }
 
