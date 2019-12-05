@@ -11,24 +11,28 @@ import javax.persistence.Id;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String uid;
     private String placeId;
     private String name;
     private double lat;
     private double lon;
 
-<span class="nc" id="L19">    public long getId() { return id; }</span>
-<span class="nc" id="L20">    public void setId(long id) { this.id = id; }</span>
+<span class="nc" id="L20">    public long getId() { return id; }</span>
+<span class="nc" id="L21">    public void setId(long id) { this.id = id; }</span>
 
-<span class="nc" id="L22">    public String getPlaceId() { return placeId; }</span>
-<span class="nc" id="L23">    public void setPlaceId(String placeId) { this.placeId = placeId; }</span>
+<span class="nc" id="L23">    public String getUid() { return uid; }</span>
+<span class="nc" id="L24">    public void setUid(String uid) { this.uid = uid; }</span>
+
+<span class="nc" id="L26">    public String getPlaceId() { return placeId; }</span>
+<span class="nc" id="L27">    public void setPlaceId(String placeId) { this.placeId = placeId; }</span>
    
-<span class="nc" id="L25">    public String getName() { return name; }</span>
-<span class="nc" id="L26">    public void setName(String name) { this.name = name; }</span>
+<span class="nc" id="L29">    public String getName() { return name; }</span>
+<span class="nc" id="L30">    public void setName(String name) { this.name = name; }</span>
 
-<span class="nc" id="L28">    public double getLat() { return lat; }</span>
-<span class="nc" id="L29">    public void setLat(double lat) { this.lat = lat; }</span>
+<span class="nc" id="L32">    public double getLat() { return lat; }</span>
+<span class="nc" id="L33">    public void setLat(double lat) { this.lat = lat; }</span>
 
-<span class="nc" id="L31">    public double getLon() { return lon; }</span>
-<span class="nc" id="L32">    public void setLon(double lon) { this.lon = lon; }</span>
+<span class="nc" id="L35">    public double getLon() { return lon; }</span>
+<span class="nc" id="L36">    public void setLon(double lon) { this.lon = lon; }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
