@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <!-- <th>uid</th> -->
+                    <th>uid</th>
                     <th>placeId</th>
                     <th>name</th>
                     <th>latitude</th>
@@ -28,7 +28,7 @@
             <tbody>
                 <tr th:each="l: ${locations}">
                     <td th:text="${l.id}"></td>
-                    <!-- <td th:text="${l.uid}"></td> -->
+                    <td th:text="${l.uid}"></td>
                     <td th:text="${l.placeId}"></td>
                     <td th:text="${l.name}"></td>
                     <td th:text="${l.lat}"></td>
