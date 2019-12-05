@@ -74,13 +74,6 @@ public class LocationsController {
         return "locations/admin";
     }
 
-    @GetMapping("/locations/admin")
-    public String admin(Model model) {
-        Iterable<Location> locations= locationRepository.findAll();
-        model.addAttribute("locations", locations);
-        return "locations/admin";
-    }
-
     @PostMapping("/locations/add")
     public String add(Location location, Model model, OAuth2AuthenticationToken token) {
       if (token == null) return "";
