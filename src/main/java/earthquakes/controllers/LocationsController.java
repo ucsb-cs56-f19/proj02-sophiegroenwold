@@ -81,7 +81,7 @@ public class LocationsController {
       String uid = oAuth2User.getAttributes().get("id").toString();
       location.setUid(uid);
       locationRepository.save(location);
-      model.addAttribute("locations", locationRepository.findAll());
+      model.addAttribute("locations", locationRepository.findByUid(uid));
       return "locations/index";
     }
 
